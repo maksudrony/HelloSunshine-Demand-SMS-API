@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "HelloSunshineSMSSYNRN_API.Controllers.TestUserController",
+    "Method": "Insert",
+    "RelativePath": "api/TestUser/insert",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "HelloSunshineSMSSYNRN_API.Models.UserTestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
