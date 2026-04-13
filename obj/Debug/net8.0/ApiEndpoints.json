@@ -1,15 +1,15 @@
 [
   {
-    "ContainingType": "HelloSunshineSMSSYNRN_API.Controllers.TestUserController",
-    "Method": "Insert",
-    "RelativePath": "api/TestUser/insert",
+    "ContainingType": "HelloSunshineSMSSYNRN_API.Controllers.SmsSyncController",
+    "Method": "SyncSms",
+    "RelativePath": "api/SmsSync/sync",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "HelloSunshineSMSSYNRN_API.Models.UserTestDto",
+        "Name": "smsList",
+        "Type": "System.Collections.Generic.List\u00601[[HelloSunshineSMSSYNRN_API.Models.SunshineMobileSms_202604, HelloSunshineSMSSYNRN_API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],

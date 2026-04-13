@@ -10,31 +10,35 @@ namespace HelloSunshineSMSSYNRN_API.Data
 
         public OracleRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("OracleDbContext");
+            _connectionString = configuration.GetConnectionString("OracleDbContext") ?? string.Empty;
         }
 
-        public async Task<string> InsertUserAsync(UserTestDto user)
+        public async Task<string> InsertSmsAsync(SunshineMobileSms_202604 sms)
         {
-            try
+            using (OracleConnection con = new OracleConnection(_connectionString))
             {
-                using (OracleConnection con = new OracleConnection(_connectionString))
+                using (OracleCommand cmd = new OracleCommand("AFML_ERP.SUNSHINE_INSERT_SUNSHINE_MOBILE_SMS_202604", con))
                 {
-                    using (OracleCommand cmd = new OracleCommand(
-                        "INSERT INTO REMOTE_ACC_USER (EMP_ENROLL, EMP_NAME) VALUES (:1, :2)", con))
-                    {
-                        cmd.Parameters.Add(":1", OracleDbType.Int32).Value = user.EmpEnroll;
-                        cmd.Parameters.Add(":2", OracleDbType.Varchar2).Value = user.EmpName;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                        await con.OpenAsync();
-                        await cmd.ExecuteNonQueryAsync();
+                    // Mapping the Stored Procedure to your exact Table Column Names
+                    cmd.Parameters.Add("P_SMS_SENDER", OracleDbType.Varchar2).Value = sms.SMS_FROM_MOBILE;
+                    cmd.Parameters.Add("P_SMS_TEXT", OracleDbType.Varchar2).Value = sms.SMS_TEXT;
+                    cmd.Parameters.Add("P_SMS_ID", OracleDbType.Int32).Value = sms.SMS_ID;
+                    cmd.Parameters.Add("P_SMS_DATE", OracleDbType.Varchar2).Value = sms.SMS_DEVICE_DATE;
+                    cmd.Parameters.Add("P_SMS_FLAG", OracleDbType.Varchar2).Value = sms.READ_FLAG;
+                    cmd.Parameters.Add("P_LICENCE_NO", OracleDbType.Varchar2).Value = sms.LICENCE_NO;
+                    cmd.Parameters.Add("P_APP_VERSION", OracleDbType.Varchar2).Value = sms.APP_VERSION;
 
-                        return "INSERTED";
-                    }
+                    OracleParameter outStatus = new OracleParameter("P_STATUS", OracleDbType.Varchar2, 500);
+                    outStatus.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(outStatus);
+
+                    await con.OpenAsync();
+                    await cmd.ExecuteNonQueryAsync();
+
+                    return outStatus.Value?.ToString() ?? "Unknown Status";
                 }
-            }
-            catch (Exception ex)
-            {
-                return "ERROR: " + ex.Message;
             }
         }
     }

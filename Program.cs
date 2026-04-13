@@ -1,12 +1,17 @@
 using HelloSunshineSMSSYNRN_API.Data;
+using HelloSunshineSMSSYNRN_API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<OracleRepository>();
 
+// ─── 1. Add Swagger Services Here ───
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Register our custom Architecture
+builder.Services.AddScoped<OracleRepository>();
+builder.Services.AddScoped<ISmsSyncService, SmsSyncService>();
 
 var app = builder.Build();
 

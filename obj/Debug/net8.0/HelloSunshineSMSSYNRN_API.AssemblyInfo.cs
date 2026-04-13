@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HelloSunshineSMSSYNRN_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4dbdc915fd96cb99d1716c89665a18f37ec67401")]
 [assembly: System.Reflection.AssemblyProductAttribute("HelloSunshineSMSSYNRN_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HelloSunshineSMSSYNRN_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

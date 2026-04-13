@@ -5,26 +5,35 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/TestUser/insert": {
+    "/api/SmsSync/sync": {
       "post": {
         "tags": [
-          "TestUser"
+          "SmsSync"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserTestDto"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SunshineMobileSms_202604"
+                }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserTestDto"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SunshineMobileSms_202604"
+                }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserTestDto"
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SunshineMobileSms_202604"
+                }
               }
             }
           }
@@ -39,14 +48,34 @@
   },
   "components": {
     "schemas": {
-      "UserTestDto": {
+      "SunshineMobileSms_202604": {
         "type": "object",
         "properties": {
-          "empEnroll": {
+          "smS_FROM_MOBILE": {
+            "type": "string",
+            "nullable": true
+          },
+          "smS_TEXT": {
+            "type": "string",
+            "nullable": true
+          },
+          "smS_ID": {
             "type": "integer",
             "format": "int32"
           },
-          "empName": {
+          "smS_DEVICE_DATE": {
+            "type": "string",
+            "nullable": true
+          },
+          "reaD_FLAG": {
+            "type": "string",
+            "nullable": true
+          },
+          "licencE_NO": {
+            "type": "string",
+            "nullable": true
+          },
+          "apP_VERSION": {
             "type": "string",
             "nullable": true
           }

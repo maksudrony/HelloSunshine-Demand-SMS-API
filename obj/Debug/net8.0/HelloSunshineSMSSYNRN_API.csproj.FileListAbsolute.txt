@@ -46,3 +46,4 @@ D:\AILRN\HelloSunshine\HelloSunshineSMSSYNRN_API\HelloSunshineSMSSYNRN_API\obj\D
 D:\AILRN\HelloSunshine\HelloSunshineSMSSYNRN_API\HelloSunshineSMSSYNRN_API\obj\Debug\net8.0\HelloSunshineSMSSYNRN_API.pdb
 D:\AILRN\HelloSunshine\HelloSunshineSMSSYNRN_API\HelloSunshineSMSSYNRN_API\obj\Debug\net8.0\HelloSunshineSMSSYNRN_API.genruntimeconfig.cache
 D:\AILRN\HelloSunshine\HelloSunshineSMSSYNRN_API\HelloSunshineSMSSYNRN_API\obj\Debug\net8.0\ref\HelloSunshineSMSSYNRN_API.dll
+D:\AILRN\HelloSunshine\HelloSunshineSMSSYNRN_API\HelloSunshineSMSSYNRN_API\obj\Debug\net8.0\HelloSunshineSMSSYNRN_API.sourcelink.json
